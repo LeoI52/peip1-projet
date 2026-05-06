@@ -1,7 +1,7 @@
 # Geometric Drawing Project
 
 ### Authors
-Léo Imbert, Yael Ennon, Matsilo Rakotondrainibe and Rodrigo Manatas
+Léo Imbert, Yael Ennon, Matsilo Rakotondrainibe, Rodrigo Manatas
 
 ### Description
 
@@ -10,14 +10,32 @@ It gives simple shapes to draw on the screen in 2D. You can find all the availab
 
 ## Point
 
-This is the base struct for all of this project and is used.
-### Attributes
+This is the base struct for all of this project and is used.  
+**Attributes :**
+- x (The x coordinate of the point)
+- y (The y coordinate of the point)
 
-### Methods
+**Methods :**
+- distance(Point) (Returns the distance between two points)
 
 ## Square
 
+**Attributes :**
+- A (The top left point of the square)
+- C (The bottom right point of the square)
 
+**Methods :**
+- side (Returns the side lenght of the square)
+- permimeter (Returns the perimeter of the square)
+- area (Returns the area of the square)
+- center (Returns the center point of the square)
+- draw (Draws the square to the screen)
+- translate(Point) (Changes the point top left corner of the square)
+- resize(double) ()
+- rotate(double) ()
+- equals(Square) (Returns if the square is equal to another one)
+- inscribedCircle (Returns the circle inscribed in the square)
+- circumscribedCircle (Returns the circle circumscribed in the square)
 
 ## Circle
 
