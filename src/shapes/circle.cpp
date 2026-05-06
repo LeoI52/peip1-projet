@@ -10,3 +10,6 @@ double circumference(){
   
 }
 
+double area(){
+    return M_PI*radius*radius ;
+}
