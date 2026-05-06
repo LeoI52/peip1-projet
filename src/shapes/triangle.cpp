@@ -1,6 +1,6 @@
 #include "point.hpp"
+#include "draw.hpp"
 #include "shapes/triangle.hpp"
-#include <draw.cpp>
 #include <vector>
 
 
@@ -11,14 +11,18 @@ double Triangle::perimeter(){
 	}
 
 double Triangle::area(){
-	return 0.5*(((A.x*(B.y-C.y)+B.x*(C.y-A.y)+C.x*(A.y-B.y))**2)**0.5);
+	int res = (A.x*(B.y-C.y)+B.x*(C.y-A.y)+C.x*(A.y-B.y));
+	if (res<0){
+		res*=-1;
+		}
+	return 0.5*res;
 	}
 	
 Point Triangle::center(){
 	return Point((A.x+B.x+C.x)/3,(A.y+B.y+C.y)/3);
 	}
 	
-void draw(){
-	vector<Point> triangle  = {A,B,C};
-	draw_picture(triangle);
+void Triangle::draw(){
+	std::vector<Point> draw_triangle  = {A,B,C};
+	draw_picture(draw_triangle);
 	}
