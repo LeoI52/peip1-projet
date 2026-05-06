@@ -18,6 +18,10 @@ Square::double area(){
     return (A.x-C.x)*(A.x-C.x);
 }
 
+Square::Point centre(){
+
+}
+
 Square::void draw(){
     for (int i=0; i<A.x-C.x; i++){
         cout << "*";}
