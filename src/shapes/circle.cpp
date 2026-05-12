@@ -18,7 +18,7 @@ Circle :: double area(){
 }
 
 Circle :: void draw(){
-    vector<Point> cercle = {center};
+    std :: vector<Point> cercle = {center};
     draw_picture(cercle);
 }
 
@@ -28,5 +28,13 @@ Circle :: void resize(double ratio){
     }else{
         radius *= ratio;
         std :: cout << "Le cercle a été ajusté" << std :: endl;        
+    }
+}
+
+Circle :: bool equals(Circle circle){
+    if(circle.radius == radius && circle.center == center){
+        return True;
+    }else{
+        return False;    
     }
 }
