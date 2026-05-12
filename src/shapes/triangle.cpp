@@ -38,12 +38,12 @@ void Triangle::translate(Point T){
 	}
 
 void Triangle::resize(double ratio){
-	A.x = center() + ratio * (A.x - center().x);
-	A.y = center() + ratio * (A.y - center().y);
-	B.x = center() + ratio * (B.x - center().x);
-	B.y = center() + ratio * (B.y - center().y);
-	C.x = center() + ratio * (C.x - center().x);
-	C.y = center() + ratio * (C.y - center().y);
+	A.x = center().x + ratio * (A.x - center().x);
+	A.y = center().y + ratio * (A.y - center().y);
+	B.x = center().x + ratio * (B.x - center().x);
+	B.y = center().y + ratio * (B.y - center().y);
+	C.x = center().x + ratio * (C.x - center().x);
+	C.y = center().y + ratio * (C.y - center().y);
 	}
 
 void Triangle::rotate(double angle){
@@ -80,5 +80,5 @@ bool Triangle::isIsoceles(){
 	}
 
 Circle Triangle::circumscribedCircle(){
-	Circle(A.distance(center()), center());
+	return Circle(A.distance(center()), center());
 	}
