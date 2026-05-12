@@ -28,7 +28,7 @@ void Circle::draw(){
 }
     Point p1;
     p1.x = center.x + radius;
-    p1.y = 0;
+    p1.y = center.y;
     cercle.push_back(p1);
     draw_picture(cercle);
 }
@@ -52,5 +52,4 @@ bool Circle::equals(Circle circle){
 void Circle::translate(Point T){
     center.x = T.x;
     center.y = T.y;
-    draw();    
 }
