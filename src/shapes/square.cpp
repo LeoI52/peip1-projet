@@ -42,7 +42,7 @@ void Square::translate(Point T){
 }
 
 void Square::resize(double ratio){
-    double O=center();
+    Point O=center();
     A.x=O.x +(A.x-O.x)*ratio;
     A.y=O.y+(A.y-O.y)*ratio;
     C.x=O.x +(C.x-O.x)*ratio;
@@ -80,11 +80,11 @@ void Square::rotate(double angle) {
 
 Circle Square::inscribedCircle() {
     // Le rayon est la moitié du côté
-    return Circle(center(), side() / 2.0);
+    return Circle(side()/2.0, center());
 }
 
 Circle Square::circumscribedCircle() {
     // Le rayon est la moitié de la diagonale
-    return Circle(center(), A.distance(C) / 2.0);
+    return Circle(A.distance(C) / 2.0, center());
 }
 
