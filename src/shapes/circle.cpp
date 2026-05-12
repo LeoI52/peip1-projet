@@ -38,3 +38,9 @@ Circle :: bool equals(Circle circle){
         return False;    
     }
 }
+
+Circle :: void translate(Point T){
+    center.x = T.x;
+    center.y = T.y;
+    draw();    
+}
