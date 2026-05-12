@@ -1,8 +1,10 @@
 #include "draw.hpp"
 #include "point.hpp"
 #include "shapes.hpp"
+#include <iostream>
 #include <vector>
 
+using namespace std;
 
 int main() {
 
@@ -20,6 +22,22 @@ int main() {
 	s.draw();
 	c.draw();
 	t.draw();
+
+	// Square
+	s.resize(0.5);
+	s.translate(Point(50, 50));
+	s.rotate(45);
+	s.draw();
+
+	// Circle
+	c.resize(0.5);
+	c.translate(Point(50, 50));
+	c.draw();
+
+	// Triangle
+	t.resize(0.5);
+	t.translate(Point(50, 50));
+	t.rotate(90);
 	
 	return 0;
 }

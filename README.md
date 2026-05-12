@@ -63,6 +63,7 @@ This is the base struct for all of this project and is used.
 - area : returns the area of the triangle
 - center : returns the center of gravity of the triangle
 - draw : draws the triangle
+- translate(Point) : changes the triangle position using point has a vector
 - resize(double) : resize the triangle while maintaining the center
 - rotate(double) : rotate counterclockwise around the center of the triangle
 - equals(Triangle) : returns if the triangle is equal to another triangle
