@@ -1,6 +1,6 @@
 #include "point.hpp"
 #include "shapes/circle.hpp"
-#include "draw.cpp"
+#include "draw.hpp"
 #include <vector>
 
 #define _USE_MATH_DEFINES
@@ -8,21 +8,21 @@
 
 Circle::Circle(double r, Point c) : radius(r), center(c) {};    //constructeur de la structure Circle
 
-Circle :: double circumference(){   //fonction calculant le prérimètre du cercle
+double Circle::circumference(){   //fonction calculant le prérimètre du cercle
   return 2*M_PI*radius ;
   
 }
 
-Circle :: double area(){     //fonction calculant l'aire du cercle
+double Circle::area(){     //fonction calculant l'aire du cercle
     return M_PI*radius*radius ;
 }
 
-Circle :: void draw(){   //fonction permettant de dessiner le cercle
+void Circle::draw(){   //fonction permettant de dessiner le cercle
     std :: vector<Point> cercle = {center};
     draw_picture(cercle);
 }
 
-Circle :: void resize(double ratio){     //fonction permettant de modifier le rayon du cercle sans en changer le centre
+void Circle::resize(double ratio){     //fonction permettant de modifier le rayon du cercle sans en changer le centre
     if(ratio <= 0){
         std:: cout << "Le rayon ne peut pas être inférieur ou égal à zéro" << std :: endl;
     }else{
@@ -31,7 +31,7 @@ Circle :: void resize(double ratio){     //fonction permettant de modifier le ra
     }
 }
 
-Circle :: bool equals(Circle circle){    //fonction permettant de comparer deux cercles pour savoir s'ils sont les mêmes
+bool Circle::equals(Circle circle){    //fonction permettant de comparer deux cercles pour savoir s'ils sont les mêmes
     if(circle.circumference() == circumference() && circle.area() == area()){
         return True;
     }else{
@@ -39,7 +39,7 @@ Circle :: bool equals(Circle circle){    //fonction permettant de comparer deux 
     }
 }
 
-Circle :: void translate(Point T){  //fonction permettant à un cercle de faire une translation sans en changer le rayon (il suffit donc de modifier les coordonnées du centre)
+void Circle::translate(Point T){  //fonction permettant à un cercle de faire une translation sans en changer le rayon (il suffit donc de modifier les coordonnées du centre)
     center.x = T.x;
     center.y = T.y;
     draw();    
