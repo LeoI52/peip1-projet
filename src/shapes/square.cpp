@@ -80,7 +80,7 @@ void Square::rotate(double angle) {
 }
 
 bool Square::equals(Square square){
-    return (A.equals(square.A) && C.equals(square.C))
+    return square.area()==area() && square.perimeter()==perimeter();
  }
 
 Circle Square::inscribedCircle() {
