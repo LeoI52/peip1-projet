@@ -24,23 +24,25 @@ int main() {
 	s.draw();
 	c.draw();
 	t.draw();
+	s.inscribedCircle().draw();
+	s.circumscribedCircle().draw();
 	t.inscribedCircle().draw();
 	t.circumscribedCircle().draw();
 
 	// Square
 	s.resize(0.5);
-	s.translate(Point(50, 50));
+	s.translate(Point(200, 200));
 	s.rotate(45);
 	s.draw();
 
 	// Circle
 	c.resize(0.5);
-	c.translate(Point(50, 50));
+	c.translate(Point(200, 200));
 	c.draw();
 
 	// Triangle
 	t.resize(0.5);
-	t.translate(Point(50, 50));
+	t.translate(Point(200, 200));
 	t.rotate(90);
 	t.draw();
 	
