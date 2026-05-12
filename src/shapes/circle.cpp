@@ -2,6 +2,7 @@
 #include "shapes/circle.hpp"
 #include "draw.hpp"
 #include <vector>
+#include <iostream>
 
 #define _USE_MATH_DEFINES
 #include <cmath>
@@ -24,18 +25,18 @@ void Circle::draw(){   //fonction permettant de dessiner le cercle
 
 void Circle::resize(double ratio){     //fonction permettant de modifier le rayon du cercle sans en changer le centre
     if(ratio <= 0){
-        std:: cout << "Le rayon ne peut pas être inférieur ou égal à zéro" << std :: endl;
+        std:: cout << "Le rayon ne peut pas être inférieur ou égal à zéro";
     }else{
         radius *= ratio;
-        std :: cout << "Le cercle a été ajusté" << std :: endl;        
+        std :: cout << "Le cercle a été ajusté";        
     }
 }
 
 bool Circle::equals(Circle circle){    //fonction permettant de comparer deux cercles pour savoir s'ils sont les mêmes
     if(circle.circumference() == circumference() && circle.area() == area()){
-        return True;
+        return true;
     }else{
-        return False;    
+        return false;    
     }
 }
 
