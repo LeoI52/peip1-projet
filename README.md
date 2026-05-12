@@ -12,31 +12,62 @@ It gives simple shapes to draw on the screen in 2D. You can find all the availab
 
 This is the base struct for all of this project and is used.  
 **Attributes :**
-- x (The x coordinate of the point)
-- y (The y coordinate of the point)
+- x (double) : the x coordinate of the point
+- y (double) : the y coordinate of the point
 
 **Methods :**
-- distance(Point) (Returns the distance between two points)
+- distance(Point) : returns the distance between two points
 
 ## Square
 
 **Attributes :**
-- A (The top left point of the square)
-- C (The bottom right point of the square)
+- A (Point) : the top left point of the square
+- C (Point) : the bottom right point of the square
 
 **Methods :**
-- side (Returns the side lenght of the square)
-- permimeter (Returns the perimeter of the square)
-- area (Returns the area of the square)
-- center (Returns the center point of the square)
-- draw (Draws the square to the screen)
-- translate(Point) (Changes the point top left corner of the square)
-- resize(double) ()
-- rotate(double) ()
-- equals(Square) (Returns if the square is equal to another one)
-- inscribedCircle (Returns the circle inscribed in the square)
-- circumscribedCircle (Returns the circle circumscribed in the square)
+- side : returns the side lenght of the square
+- permimeter : returns the perimeter of the square
+- area : returns the area of the square
+- center : returns the center point of the square
+- draw : draws the square to the screen
+- translate(Point) : changes the point top left corner of the squar
+- resize(double) : resize the square while maintaining center
+- rotate(double) : rotate counterclockwise around the center of the square in degrees
+- equals(Square) : returns if the square is equal to another one
+- inscribedCircle : returns the circle inscribed in the square
+- circumscribedCircle : returns the circle circumscribed in the square
 
 ## Circle
 
+**Attributes :**
+- radius (double) : the radius of the circle
+- center (Point) : the center point of the circle
+
+**Methods :**
+- circumference : returns the circumference of the circle
+- area : returns the area of the circle
+- draw : draws the circle
+- translate(Point) : changes the center point
+- resize(double) : resize the circle with a ratio
+- equals(Circle) : returns if the circle is equal to another one
+
 ## Triangle
+
+**Attributes :**
+- A (Point) : the first point of the triangle
+- B (Point) : the second point of the triangle
+- C (Point) : the third point of the triangle
+
+**Methods :**
+- perimeter : returns the perimeter of the triangle
+- area : returns the area of the triangle
+- center : returns the center of gravity of the triangle
+- draw : draws the triangle
+- resize(double) : resize the triangle while maintaining the center
+- rotate(double) : rotate counterclockwise around the center of the triangle
+- equals(Triangle) : returns if the triangle is equal to another triangle
+- isRightAngled : returns if the triangle is right angled
+- isEquilateral : returns if the triangle is equilateral
+- isIsoceles : returns if the triangle is isoceles
+- inscribedCircle : returns the inscribed circle of the triangle
+- circumscribedCircle : returns the circumscribed circle of the triangle
