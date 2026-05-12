@@ -7,8 +7,7 @@ using namespace std;
 
 Square::Square(Point P, Point R) : A(P), C(R) {};
 
-double Square::side(){
-    double Square::side() {
+double Square::side() {
     double diag = A.distance(C);
     return diag / std::sqrt(2.0);
 }
