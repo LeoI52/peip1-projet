@@ -1,5 +1,35 @@
-void Square::draw(){
+#include "point.hpp"
+#include "shapes/square.hpp"
+#include <iostream> 
+#include <cmath>
+using namespace std;
 
+
+Square::Square(Point P, Point R) : A(P), C(R) {};
+
+double Square::side(){
+    double Square::side() {
+    double diag = A.distance(C);
+    return diag / std::sqrt(2.0);
+}
+
+double Square::perimeter(){
+    return 4*side();
+
+}
+
+double Square::area() {
+    double s = side();
+    return s * s;
+}
+
+Point Square::center() {
+    return Point((A.x + C.x) / 2.0, (A.y + C.y) / 2.0);
+}
+
+void Square::draw(){
+    std::vector<Point> square={A,C};
+    draw_picture (triangle);
 }
 
 
@@ -46,5 +76,10 @@ void Square::rotate(double angle) {
 }
 
 bool Square::equals(Square square){
+    return (())
+}
+
+Circle Square::inscribedCircle(){
     
 }
+
