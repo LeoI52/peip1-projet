@@ -2,7 +2,8 @@
 #include "draw.hpp"
 #include "shapes/triangle.hpp"
 #include <vector>
-
+#define _USE_MATH_DEFINES
+#include <cmath>
 
 Triangle::Triangle(Point P, Point Q, Point R) : A(P), B(Q), C(R) {}
 
@@ -37,12 +38,12 @@ void Triangle::translate(Point T){
 	}
 
 void Triangle::resize(double ratio){
-	A.x = center() + ratio * (A.x - center());
-	A.y = center() + ratio * (A.y - center());
-	B.x = center() + ratio * (B.x - center());
-	B.y = center() + ratio * (B.y - center());
-	C.x = center() + ratio * (C.x - center());
-	C.y = center() + ratio * (C.y - center());
+	A.x = center() + ratio * (A.x - center().x);
+	A.y = center() + ratio * (A.y - center().y);
+	B.x = center() + ratio * (B.x - center().x);
+	B.y = center() + ratio * (B.y - center().y);
+	C.x = center() + ratio * (C.x - center().x);
+	C.y = center() + ratio * (C.y - center().y);
 	}
 
 void Triangle::rotate(double angle){
@@ -79,5 +80,5 @@ bool Triangle::isIsoceles(){
 	}
 
 Circle Triangle::circumscribedCircle(){
-	Circle(A.distance(center()), center())
+	Circle(A.distance(center()), center());
 	}
