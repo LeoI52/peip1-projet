@@ -54,21 +54,24 @@ void Square::resize(double ratio){
 void Square::rotate(double angle) {
 
     Point O= center();
-
-    double x1 = A.x - O.x;
+    // calcul de chaque écart entre le centre et le point
+    double x1 = A.x - O.x; 
     double y1 = A.y - O.y;
     double x2 = C.x - O.x;
     double y2 = C.y - O.y;
 
-    double cosA = std::cos(angle);
-    double sinA = std::sin(angle);
+    double cosA = std::cos(angle); //cosinus de l angle
+    double sinA = std::sin(angle);// sinus de l angle
 
+
+    // calcule les coordonnées des points avec rotation 
     double rx1 = x1 * cosA - y1 * sinA; //r..=rotation
     double ry1 = x1 * sinA + y1 * cosA;
 
     double rx2 = x2 * cosA - y2 * sinA;
     double ry2 = x2 * sinA + y2 * cosA;
 
+    // calcule coordonnées point finaux par rapport au centre
     A.x = O.x + rx1;
     A.y = O.y + ry1;
 
@@ -76,7 +79,9 @@ void Square::rotate(double angle) {
     C.y = O.y + ry2;
 }
 
-
+bool Square::equals(Square square){
+    return (A.equals(square.A) && C.equals(square.C))
+ }
 
 Circle Square::inscribedCircle() {
     // Le rayon est la moitié du côté
