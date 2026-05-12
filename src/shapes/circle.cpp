@@ -22,13 +22,13 @@ void Circle::draw(){
     Point p;
     std :: vector<Point> cercle = {};
     for(int i = 0; i <= 64; i++){
-        p.x = cos((M_PI/32)*i);
-        p.y = sin((M_PI/32)*i);
+        p.x = cos(radius+(M_PI/32)*i);
+        p.y = sin(radius+(M_PI/32)*i);
         cercle.push_back(p);
 }
     Point p1;
-    p1.x = cos(0);
-    p1.y = sin(0);
+    p1.x = cos(radius);
+    p1.y = sin(radius);
     cercle.push_back(p1);
     draw_picture(cercle);
 }
