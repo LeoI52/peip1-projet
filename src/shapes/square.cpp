@@ -32,15 +32,12 @@ Point Square::center() {
 }
 
 void Square::draw(){
-    // Milieu de la diagonale AC
     double mx = (A.x + C.x) / 2.0;
     double my = (A.y + C.y) / 2.0;
 
-    // Demi-vecteur AC
     double vx = (C.x - A.x) / 2.0;
     double vy = (C.y - A.y) / 2.0;
-
-    // Rotation de 90°
+    
     Point B = { mx - vy, my + vx };
     Point D = { mx + vy, my - vx };
 

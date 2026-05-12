@@ -26,18 +26,18 @@ int main() {
 	t.draw();
 	s.inscribedCircle().draw();
 	s.circumscribedCircle().draw();
-	t.inscribedCircle().draw();
+	// t.inscribedCircle().draw();
 	t.circumscribedCircle().draw();
 
 	// Square
 	s.resize(0.5);
-	s.translate(Point(200, 200));
+	s.translate(Point(100, 100));
 	s.rotate(45);
 	s.draw();
 
 	// Circle
 	c.resize(0.5);
-	c.translate(Point(200, 200));
+	c.translate(Point(100, 100));
 	c.draw();
 
 	// Triangle
