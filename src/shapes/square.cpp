@@ -32,8 +32,8 @@ Point Square::center() {
 }
 
 void Square::draw(){
-    Point B= {C.x, A.y};
-    Point D={A.x,C.y };
+    Point B= {(A.x - C.x)/2 - (C.y-A.y)/2, (A.y + C.y)/2 + (C.x - A.x)/2};
+    Point D={(A.x - C.x)/2 + (C.y-A.y)/2, (A.y + C.y)/2 - (C.x - A.x)/2};
     std::vector<Point> Square={A,B,C,D,A};
     draw_picture (Square);
 }
@@ -79,7 +79,7 @@ void Square::rotate(double angle) {
 	C.x += centre_x;
 	C.y += centre_y;
 	}
-    
+
 bool Square::equals(Square square){
     return square.area()==area() && square.perimeter()==perimeter();
  }
