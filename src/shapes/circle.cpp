@@ -8,16 +8,25 @@
 
 Circle::Circle(double r, Point c) : radius(r), center(c) {};
 
-double circumference(){
+Circle :: double circumference(){
   return 2*M_PI*radius ;
   
 }
 
-double area(){
+Circle :: double area(){
     return M_PI*radius*radius ;
 }
 
-void draw(){
+Circle :: void draw(){
     vector<Point> cercle = {center};
     draw_picture(cercle);
+}
+
+Circle :: void resize(double ratio){
+    if(ratio <= 0){
+        std:: cout << "Le rayon ne peut pas être inférieur ou égal à zéro" << std :: endl;
+    }else{
+        radius *= ratio;
+        std :: cout << "Le cercle a été ajusté" << std :: endl;        
+    }
 }
