@@ -1,5 +1,6 @@
 #include "point.hpp"
 #include "shapes/square.hpp"
+#include "draw.hpp"
 #include <iostream> 
 #include <cmath>
 #include <vector>
@@ -52,7 +53,7 @@ void Square::resize(double ratio){
 
 void Square::rotate(double angle) {
 
-    Point O = center();
+    Point O= center();
 
     double x1 = A.x - O.x;
     double y1 = A.y - O.y;
