@@ -2,7 +2,10 @@
 #include "shapes/square.hpp"
 #include "draw.hpp"
 #include <iostream> 
+#define _USE_MATH_DEFINES
+
 #include <cmath>
+
 #include <vector>
 using namespace std;
 
@@ -54,7 +57,7 @@ void Square::resize(double ratio){
 
 
 void Square::rotate(double angle) {
-
+    angle=angle*M_PI/180;
     Point O= center();
     // calcul de chaque écart entre le centre et le point
     double x1 = A.x - O.x; 
