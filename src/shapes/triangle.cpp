@@ -23,6 +23,61 @@ Point Triangle::center(){
 	}
 	
 void Triangle::draw(){
-	std::vector<Point> draw_triangle  = {A,B,C};
+	std::vector<Point> draw_triangle  = {A,B,C,A};
 	draw_picture(draw_triangle);
+	}
+
+void Triangle::translate(Point T){
+	A.x = A.x + T.x,
+	A.y = A.y + T.y;
+	B.x = B.x + T.x,
+	B.y = B.y + T.y;
+	C.x = C.x + T.x,
+	C.y = C.y + T.y;
+	}
+
+void Triangle::resize(double ratio){
+	A.x = center() + ratio * (A.x - center());
+	A.y = center() + ratio * (A.y - center());
+	B.x = center() + ratio * (B.x - center());
+	B.y = center() + ratio * (B.y - center());
+	C.x = center() + ratio * (C.x - center());
+	C.y = center() + ratio * (C.y - center());
+	}
+
+void Triangle::rotate(double angle){
+	angle = angle*M_PI/180;
+	double temp_Ax = A.x;
+	double temp_Bx = B.x;
+	double temp_Cx = C.x;
+	A.x = A.x*cos(angle) - A.y*sin(angle), 
+	A.y = temp_Ax*sin(angle) + A.y*cos(angle);
+	B.x = B.x*cos(angle) - B.y*sin(angle), 
+	B.y = temp_Bx*sin(angle) + B.y*cos(angle);
+	C.x = C.x*cos(angle) - C.y*sin(angle), 
+	C.y = temp_Cx*sin(angle) + C.y*cos(angle);
+	}
+
+bool Triangle::equals(Triangle triangle){
+	return (A.x == triangle.A.x and A.y == triangle.A.y or A.x == triangle.B.x and A.y == triangle.B.y or A.x == triangle.C.x and A.y == triangle.C.y) 
+		and (B.x == triangle.A.x and B.y == triangle.A.y or B.x == triangle.B.x and B.y == triangle.B.y or B.x == triangle.C.x and B.y == triangle.C.y) 
+		and (C.x == triangle.A.x and C.y == triangle.A.y or C.x == triangle.B.x and C.y == triangle.B.y or C.x == triangle.C.x and C.y == triangle.C.y);
+	}
+
+bool Triangle::isRightAngled(){
+	return (A.distance(B)*A.distance(B) == A.distance(C)*A.distance(C) + B.distance(C)*B.distance(C))
+		or (A.distance(B)*A.distance(B) + A.distance(C)*A.distance(C) == B.distance(C)*B.distance(C))
+		or (A.distance(C)*A.distance(C) == A.distance(B)*A.distance(B) + B.distance(C)*B.distance(C));
+	}
+
+bool Triangle::isEquilateral(){
+	return A.distance(B) == A.distance(C) == B.distance(C);
+	}
+
+bool Triangle::isIsoceles(){
+	return (A.distance(B) == A.distance(C)) or (A.distance(B) == B.distance(C)) or (B.distance(C) == A.distance(C));
+	}
+
+Circle Triangle::circumscribedCircle(){
+	Circle(A.distance(center()), center())
 	}
