@@ -27,8 +27,8 @@ Point Square::center() {
 }
 
 void Square::draw(){
-    std::vector<Point> square={A,C};
-    draw_picture (triangle);
+    std::vector<Point> Square={A,C};
+    draw_picture (Square);
 }
 
 
@@ -40,7 +40,7 @@ void Square::translate(Point T){
 }
 
 void Square::resize(double ratio){
-    double O=centre();
+    double O=center();
     A.x=O.x +(A.x-O.x)*ratio;
     A.y=O.y+(A.y-O.y)*ratio;
     C.x=O.x +(C.x-O.x)*ratio;
@@ -74,11 +74,15 @@ void Square::rotate(double angle) {
     C.y = O.y + ry2;
 }
 
-bool Square::equals(Square square){
-    return (())
+
+
+Circle Square::inscribedCircle() {
+    // Le rayon est la moitié du côté
+    return Circle(center(), side() / 2.0);
 }
 
-Circle Square::inscribedCircle(){
-    
+Circle Square::circumscribedCircle() {
+    // Le rayon est la moitié de la diagonale
+    return Circle(center(), A.distance(C) / 2.0);
 }
 
