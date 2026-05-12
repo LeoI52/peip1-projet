@@ -51,12 +51,29 @@ void Triangle::rotate(double angle){
 	double temp_Ax = A.x;
 	double temp_Bx = B.x;
 	double temp_Cx = C.x;
+	double centre_x = center().x;
+	double centre_y = center().y;
+	
+	A.x -= centre_x;
+	A.y -= centre_y;
+	B.x -= centre_x;
+	B.y -= centre_y;
+	C.x -= centre_x;
+	C.y -= centre_y;
+
 	A.x = A.x*cos(angle) - A.y*sin(angle), 
 	A.y = temp_Ax*sin(angle) + A.y*cos(angle);
 	B.x = B.x*cos(angle) - B.y*sin(angle), 
 	B.y = temp_Bx*sin(angle) + B.y*cos(angle);
 	C.x = C.x*cos(angle) - C.y*sin(angle), 
 	C.y = temp_Cx*sin(angle) + C.y*cos(angle);
+
+	A.x += centre_x;
+	A.y += centre_y;
+	B.x += centre_x;
+	B.y += centre_y;
+	C.x += centre_x;
+	C.y += centre_y;
 	}
 
 bool Triangle::equals(Triangle triangle){
