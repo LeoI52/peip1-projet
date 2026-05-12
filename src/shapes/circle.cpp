@@ -21,14 +21,14 @@ double Circle::area(){
 void Circle::draw(){
     Point p;
     std :: vector<Point> cercle = {};
-    for(int i = 0; i <= 64; i++){
-        p.x = cos(radius+(M_PI/32)*i);
-        p.y = sin(radius+(M_PI/32)*i);
+    for(int i = 0; i < 64; i++){
+        p.x = center.x + radius*cos((M_PI/32)*i);
+        p.y = center.y + radius*sin((M_PI/32)*i);
         cercle.push_back(p);
 }
     Point p1;
-    p1.x = cos(radius);
-    p1.y = sin(radius);
+    p1.x = center.x + radius;
+    p1.y = 0;
     cercle.push_back(p1);
     draw_picture(cercle);
 }
