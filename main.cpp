@@ -42,7 +42,7 @@ int main() {
 
 	// Triangle
 	t.resize(0.5);
-	t.translate(Point(200, 200));
+	t.translate(Point(50, 50));
 	t.rotate(90);
 	t.draw();
 	
