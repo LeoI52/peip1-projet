@@ -58,8 +58,6 @@ void Square::resize(double ratio){
 
 void Square::rotate(double angle) {
     angle = angle*M_PI/180;
-	double temp_Ax = A.x;
-	double temp_Cx = C.x;
 	double centre_x = center().x;
 	double centre_y = center().y;
 	
@@ -67,6 +65,9 @@ void Square::rotate(double angle) {
 	A.y -= centre_y;
 	C.x -= centre_x;
 	C.y -= centre_y;
+
+    double temp_Ax = A.x;
+	double temp_Cx = C.x;
 
 	A.x = A.x*cos(angle) - A.y*sin(angle), 
 	A.y = temp_Ax*sin(angle) + A.y*cos(angle);
@@ -78,6 +79,7 @@ void Square::rotate(double angle) {
 	C.x += centre_x;
 	C.y += centre_y;
 	}
+    
 bool Square::equals(Square square){
     return square.area()==area() && square.perimeter()==perimeter();
  }
