@@ -57,33 +57,27 @@ void Square::resize(double ratio){
 
 
 void Square::rotate(double angle) {
-    angle=angle*M_PI/180;
-    Point O= center();
-    // calcul de chaque écart entre le centre et le point
-    double x1 = A.x - O.x; 
-    double y1 = A.y - O.y;
-    double x2 = C.x - O.x;
-    double y2 = C.y - O.y;
+    angle = angle*M_PI/180;
+	double temp_Ax = A.x;
+	double temp_Cx = C.x;
+	double centre_x = center().x;
+	double centre_y = center().y;
+	
+	A.x -= centre_x;
+	A.y -= centre_y;
+	C.x -= centre_x;
+	C.y -= centre_y;
 
-    double cosA = std::cos(angle); //cosinus de l angle
-    double sinA = std::sin(angle);// sinus de l angle
+	A.x = A.x*cos(angle) - A.y*sin(angle), 
+	A.y = temp_Ax*sin(angle) + A.y*cos(angle);
+	C.x = C.x*cos(angle) - C.y*sin(angle), 
+	C.y = temp_Cx*sin(angle) + C.y*cos(angle);
 
-
-    // calcule les coordonnées des points avec rotation 
-    double rx1 = x1 * cosA - y1 * sinA; //r..=rotation
-    double ry1 = x1 * sinA + y1 * cosA;
-
-    double rx2 = x2 * cosA - y2 * sinA;
-    double ry2 = x2 * sinA + y2 * cosA;
-
-    // calcule coordonnées point finaux par rapport au centre
-    A.x = O.x + rx1;
-    A.y = O.y + ry1;
-
-    C.x = O.x + rx2;
-    C.y = O.y + ry2;
-}
-
+	A.x += centre_x;
+	A.y += centre_y;
+	C.x += centre_x;
+	C.y += centre_y;
+	}
 bool Square::equals(Square square){
     return square.area()==area() && square.perimeter()==perimeter();
  }
