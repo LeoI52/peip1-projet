@@ -6,23 +6,23 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 
-Circle::Circle(double r, Point c) : radius(r), center(c) {};
+Circle::Circle(double r, Point c) : radius(r), center(c) {};    //constructeur de la structure Circle
 
-Circle :: double circumference(){
+Circle :: double circumference(){   //fonction calculant le prérimètre du cercle
   return 2*M_PI*radius ;
   
 }
 
-Circle :: double area(){
+Circle :: double area(){     //fonction calculant l'aire du cercle
     return M_PI*radius*radius ;
 }
 
-Circle :: void draw(){
+Circle :: void draw(){   //fonction permettant de dessiner le cercle
     std :: vector<Point> cercle = {center};
     draw_picture(cercle);
 }
 
-Circle :: void resize(double ratio){
+Circle :: void resize(double ratio){     //fonction permettant de modifier le rayon du cercle sans en changer le centre
     if(ratio <= 0){
         std:: cout << "Le rayon ne peut pas être inférieur ou égal à zéro" << std :: endl;
     }else{
@@ -31,15 +31,15 @@ Circle :: void resize(double ratio){
     }
 }
 
-Circle :: bool equals(Circle circle){
-    if(circle.radius == radius && circle.center == center){
+Circle :: bool equals(Circle circle){    //fonction permettant de comparer deux cercles pour savoir s'ils sont les mêmes
+    if(circle.circumference() == circumference() && circle.area() == area()){
         return True;
     }else{
         return False;    
     }
 }
 
-Circle :: void translate(Point T){
+Circle :: void translate(Point T){  //fonction permettant à un cercle de faire une translation sans en changer le rayon (il suffit donc de modifier les coordonnées du centre)
     center.x = T.x;
     center.y = T.y;
     draw();    
