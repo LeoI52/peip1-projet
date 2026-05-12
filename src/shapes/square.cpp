@@ -32,10 +32,21 @@ Point Square::center() {
 }
 
 void Square::draw(){
-    Point B= {C.x, A.y};
-    Point D={A.x,C.y };
-    std::vector<Point> Square={A,B,C,D,A};
-    draw_picture (Square);
+    // Milieu de la diagonale AC
+    double mx = (A.x + C.x) / 2.0;
+    double my = (A.y + C.y) / 2.0;
+
+    // Demi-vecteur AC
+    double vx = (C.x - A.x) / 2.0;
+    double vy = (C.y - A.y) / 2.0;
+
+    // Rotation de 90°
+    Point B = { mx - vy, my + vx };
+    Point D = { mx + vy, my - vx };
+
+    std::vector<Point> square = {A, B, C, D, A};
+
+    draw_picture(square);
 }
 
 
