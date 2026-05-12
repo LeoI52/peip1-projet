@@ -29,7 +29,9 @@ Point Square::center() {
 }
 
 void Square::draw(){
-    std::vector<Point> Square={A,C};
+    Point B= {C.x, A.y};
+    Point D={A.x,C.y };
+    std::vector<Point> Square={A,B,C,D,A};
     draw_picture (Square);
 }
 
